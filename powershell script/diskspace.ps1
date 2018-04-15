@@ -24,17 +24,17 @@ Function Send-EMail {
         [Parameter(`
             Mandatory=$true)]
        
-        [String]$Password,
-          [Parameter(`
-            Mandatory=$true)]
-        [String]$Attachment
+        [String]$Password#,
+        #   [Parameter(`
+        #     Mandatory=$true)]
+        # [String]$Attachment
     )
 
 		$EmailFrom = "sample@blockchainproject.com"
         $SMTPServer = "smtp.stackmail.com" 
         $SMTPMessage = New-Object System.Net.Mail.MailMessage($EmailFrom,$EmailTo,$Subject,$Body)
-        $Att = New-Object System.Net.Mail.Attachment($Attachment)
-        $SMTPMessage.Attachments.add($Att) 
+        # $Att = New-Object System.Net.Mail.Attachment($Attachment)
+        # $SMTPMessage.Attachments.add($Att) 
         $SMTPClient = New-Object Net.Mail.SmtpClient($SmtpServer, 25) 
         $SMTPClient.EnableSsl = $true
         $SMTPClient.Credentials = New-Object System.Net.NetworkCredential($EmailFrom, $Password); 
@@ -50,6 +50,6 @@ write-host $diskspace.FreeSpace " " $diskspace.Size " " $diskspace.UsedSpace
 $Limit = 1
 If ($diskspace.UsedSpace -gt 0) {
 
-  Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "YOUR MESSAGE" -Subject "YOUR SUBHECT" -password "Kb7e4624a" -Attachment "D:\custom works\Playground\shell scripts\powershell script\message.txt"
-    
+#   Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "YOUR MESSAGE" -Subject "YOUR SUBHECT" -password "Kb7e4624a" -Attachment "D:\custom works\Playground\shell scripts\powershell script\message.txt"
+    Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "hello" -Subject "YOUR SUBJECT" -password "Kb7e4624a"
 }
