@@ -48,7 +48,7 @@ $diskspace = GetDiskSizeInfo "C:"
 write-host $diskspace.FreeSpace " " $diskspace.Size " " $diskspace.UsedSpace
 
 $Limit = 1
-If ($diskspace.UsedSpace -gt 0) {
+If ($diskspace.UsedSpace -gt $Limit) {
 
 #   Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "YOUR MESSAGE" -Subject "YOUR SUBHECT" -password "Kb7e4624a" -Attachment "D:\custom works\Playground\shell scripts\powershell script\message.txt"
     Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "hello" -Subject "YOUR SUBJECT" -password "Kb7e4624a"
