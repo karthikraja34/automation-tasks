@@ -5,6 +5,9 @@ Function Send-EMail {
         [String]$EmailTo,
         [Parameter(`
             Mandatory=$true)]
+        [String]$Cc,
+        [Parameter(`
+            Mandatory=$true)]
         [String]$Subject,
         [Parameter(`
             Mandatory=$true)]
@@ -31,5 +34,11 @@ Function Send-EMail {
         Remove-Variable -Name Password
       
 } #End Function Send-EMail
+
+$to = "<rajakarthik131@gmail.com>";
+$cc = "<hibekibaca@bitwhites.top>";
+$body = "hello \n world";
+$subject = "65e6h";
+
 # Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "YOUR MESSAGE" -Subject "YOUR SUBJECT" -password "Kb7e4624a" -Attachment "D:\custom works\Playground\shell scripts\powershell script\message.txt"
-Send-EMail -EmailTo "rajakarthik131@gmail.com" -Body "hello" -Subject "YOUR SUBJECT" -password "Kb7e4624a"
+Send-EMail -EmailTo $to -Cc $cc -Body $body -Subject $subject -password "Kb7e4624a"
